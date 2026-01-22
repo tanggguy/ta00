@@ -1,0 +1,73 @@
+{
+    "best_params": {
+        "sma_short": 10,
+        "sma_long": 50
+    },
+    "train_stats": {
+        "sharpe": 1.52
+    },
+    "test_stats": {
+        "sharpe": 2.82,
+        "total_return": 28.68,
+        "max_drawdown": -12.71,
+        "win_rate": 50.0
+    },
+    "overfitting_detected": -1.2999999999999998,
+    "is_overfitting": false,
+    "all_train_results": [
+        {
+            "sma_short": 10,
+            "sma_long": 50,
+            "sharpe": 1.52,
+            "total_return": 35.58
+        },
+        {
+            "sma_short": 10,
+            "sma_long": 100,
+            "sharpe": 0.24,
+            "total_return": 1.88
+        },
+        {
+            "sma_short": 10,
+            "sma_long": 200,
+            "sharpe": -0.06,
+            "total_return": -4.17
+        },
+        {
+            "sma_short": 20,
+            "sma_long": 50,
+            "sharpe": 1.36,
+            "total_return": 29.75
+        },
+        {
+            "sma_short": 20,
+            "sma_long": 100,
+            "sharpe": 0.02,
+            "total_return": -2.63
+        },
+        {
+            "sma_short": 20,
+            "sma_long": 200,
+            "sharpe": -0.53,
+            "total_return": -12.29
+        },
+        {
+            "sma_short": 30,
+            "sma_long": 50,
+            "sharpe": 0.92,
+            "total_return": 17.37
+        },
+        {
+            "sma_short": 30,
+            "sma_long": 100,
+            "sharpe": 0.41,
+            "total_return": 5.59
+        },
+        {
+            "sma_short": 30,
+            "sma_long": 200,
+            "sharpe": -0.51,
+            "total_return": -11.72
+        }
+    ]
+}

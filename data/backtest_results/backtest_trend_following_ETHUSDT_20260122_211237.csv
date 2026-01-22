@@ -1,0 +1,2 @@
+strategy,pair,total_return_pct,sharpe_ratio,max_drawdown_pct,win_rate_pct,num_trades,profit_factor,initial_capital,final_capital,timestamp
+trend_following,ETH/USDT,-2.06,-0.09,-13.35,35.71,112,0.95,2000,1958.72,2026-01-22T21:12:37.139355

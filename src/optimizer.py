@@ -124,7 +124,7 @@ def walk_forward_validation(
             'max_drawdown': test_results['max_drawdown'],
             'win_rate': test_results['win_rate']
         },
-        'overfitting_detected': float(sharpe_diff), # Cast numpy float to python float
+        'overfitting_detected': 0.0 if np.isinf(sharpe_diff) or np.isnan(sharpe_diff) else float(sharpe_diff),
         'is_overfitting': bool(is_overfitting),
         'all_train_results': train_results_list
     }

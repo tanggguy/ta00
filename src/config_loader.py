@@ -87,7 +87,8 @@ class ConfigLoader:
             'strategies.json',
             'logging.json',
             'backtest.json',
-            'optimization.json'
+            'optimization.json',
+            'risk.json'
         ]
         
         for filename in config_files:
@@ -152,6 +153,11 @@ class ConfigLoader:
     def strategies(self) -> Dict[str, Any]:
         """Get strategies configuration."""
         return self._cache.get('strategies', {})
+        
+    @property
+    def risk(self) -> Dict[str, Any]:
+        """Get risk configuration."""
+        return self._cache.get('risk', {})
     
     @property
     def logging_config(self) -> Dict[str, Any]:

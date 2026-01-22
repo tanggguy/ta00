@@ -1,0 +1,26 @@
+{
+    "global_defaults": {
+        "risk_per_trade_pct": 1.0,
+        "max_position_size_pct": 20.0,
+        "atr_period": 14,
+        "atr_multiplier_sl": 2.0,
+        "atr_multiplier_tp": 4.0,
+        "trailing_stop_enabled": true,
+        "trailing_stop_activation_pct": 3.0,
+        "trailing_stop_callback_pct": 1.0
+    },
+    "strategies": {
+        "trend_following": {
+            "risk_per_trade_pct": 2.0,
+            "atr_multiplier_sl": 3.0,
+            "atr_multiplier_tp": 6.0,
+            "trailing_stop_enabled": true
+        },
+        "mean_reversion": {
+            "risk_per_trade_pct": 1.0,
+            "atr_multiplier_sl": 1.5,
+            "atr_multiplier_tp": 3.0,
+            "trailing_stop_enabled": false
+        }
+    }
+}

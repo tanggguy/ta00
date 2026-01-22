@@ -1,0 +1,146 @@
+{
+    "best_params": {
+        "rsi_period": 14,
+        "oversold": 25,
+        "overbought": 75
+    },
+    "train_stats": {
+        "sharpe": 1.77
+    },
+    "test_stats": {
+        "sharpe": 0.0,
+        "total_return": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0.0
+    },
+    "overfitting_detected": 1.77,
+    "is_overfitting": true,
+    "all_train_results": [
+        {
+            "rsi_period": 14,
+            "oversold": 20,
+            "overbought": 70,
+            "sharpe": 1.09,
+            "total_return": 15.99
+        },
+        {
+            "rsi_period": 14,
+            "oversold": 20,
+            "overbought": 75,
+            "sharpe": 1.56,
+            "total_return": 28.7
+        },
+        {
+            "rsi_period": 14,
+            "oversold": 20,
+            "overbought": 80,
+            "sharpe": 1.42,
+            "total_return": 32.58
+        },
+        {
+            "rsi_period": 14,
+            "oversold": 25,
+            "overbought": 70,
+            "sharpe": 1.15,
+            "total_return": 20.03
+        },
+        {
+            "rsi_period": 14,
+            "oversold": 25,
+            "overbought": 75,
+            "sharpe": 1.77,
+            "total_return": 38.54
+        },
+        {
+            "rsi_period": 14,
+            "oversold": 25,
+            "overbought": 80,
+            "sharpe": 1.76,
+            "total_return": 45.37
+        },
+        {
+            "rsi_period": 14,
+            "oversold": 30,
+            "overbought": 70,
+            "sharpe": 0.72,
+            "total_return": 12.01
+        },
+        {
+            "rsi_period": 14,
+            "oversold": 30,
+            "overbought": 75,
+            "sharpe": 1.18,
+            "total_return": 24.86
+        },
+        {
+            "rsi_period": 14,
+            "oversold": 30,
+            "overbought": 80,
+            "sharpe": 1.26,
+            "total_return": 30.99
+        },
+        {
+            "rsi_period": 21,
+            "oversold": 20,
+            "overbought": 70,
+            "sharpe": 1.04,
+            "total_return": 14.22
+        },
+        {
+            "rsi_period": 21,
+            "oversold": 20,
+            "overbought": 75,
+            "sharpe": 1.11,
+            "total_return": 17.89
+        },
+        {
+            "rsi_period": 21,
+            "oversold": 20,
+            "overbought": 80,
+            "sharpe": 1.1,
+            "total_return": 30.92
+        },
+        {
+            "rsi_period": 21,
+            "oversold": 25,
+            "overbought": 70,
+            "sharpe": 0.86,
+            "total_return": 11.63
+        },
+        {
+            "rsi_period": 21,
+            "oversold": 25,
+            "overbought": 75,
+            "sharpe": 0.96,
+            "total_return": 15.22
+        },
+        {
+            "rsi_period": 21,
+            "oversold": 25,
+            "overbought": 80,
+            "sharpe": 1.02,
+            "total_return": 27.94
+        },
+        {
+            "rsi_period": 21,
+            "oversold": 30,
+            "overbought": 70,
+            "sharpe": 1.64,
+            "total_return": 39.77
+        },
+        {
+            "rsi_period": 21,
+            "oversold": 30,
+            "overbought": 75,
+            "sharpe": 1.18,
+            "total_return": 28.6
+        },
+        {
+            "rsi_period": 21,
+            "oversold": 30,
+            "overbought": 80,
+            "sharpe": 1.33,
+            "total_return": 40.47
+        }
+    ]
+}

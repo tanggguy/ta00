@@ -3,7 +3,7 @@ Module: src/backtest_engine.py
 Description: Vectorized backtest engine using VectorBT
 Author: Trading Bot
 Date: 2025-01-22
-Version: 1.0
+Version: 1.1
 """
 
 from datetime import datetime
@@ -22,6 +22,7 @@ except ImportError:
 from src.config_loader import get_config
 from src.logger import get_logger
 from src.strategies.base import Strategy
+from src.risk_manager import RiskManager
 
 logger = get_logger(__name__)
 
@@ -64,6 +65,8 @@ class BacktestEngine:
         self.fees = fees or backtest_config.get('fees', 0.001)
         self.slippage = slippage or backtest_config.get('slippage', 0.0005)
         
+        self.risk_manager = RiskManager()
+        
         logger.info(
             f"BacktestEngine initialized: capital={self.initial_capital}, "
             f"fees={self.fees*100:.2f}%, slippage={self.slippage*100:.3f}%"
@@ -84,20 +87,7 @@ class BacktestEngine:
             pair (str): Trading pair name (for logging)
         
         Returns:
-            Dict[str, Any]: Backtest results containing:
-                - strategy: Strategy name
-                - pair: Trading pair
-                - total_return: Total return percentage
-                - sharpe_ratio: Sharpe ratio
-                - max_drawdown: Maximum drawdown percentage
-                - win_rate: Win rate percentage
-                - num_trades: Number of trades
-                - profit_factor: Profit factor
-                - equity_curve: Portfolio value over time
-                - trades: Trade details DataFrame
-        
-        Raises:
-            ValueError: If DataFrame is invalid
+            Dict[str, Any]: Backtest results
         """
         if df is None or df.empty:
             raise ValueError("DataFrame is empty")
@@ -128,18 +118,57 @@ class BacktestEngine:
         pair: str
     ) -> Dict[str, Any]:
         """Run backtest using VectorBT."""
-        # Define entry and exit signals
-        entries = df['signal'] == 1
-        exits = df['signal'] == -1
         
-        # Handle timezone-aware timestamps
-        close = df['close'].copy()
-        if isinstance(df.index, pd.DatetimeIndex):
-            close.index = df.index
-        elif 'timestamp' in df.columns:
-            close.index = pd.to_datetime(df['timestamp'])
+        # --- FIX: Ensure index is DatetimeIndex for all series ---
+        df_vbt = df.copy()
+        if 'timestamp' in df_vbt.columns:
+            # Convert timestamp to datetime if not already
+            df_vbt['timestamp'] = pd.to_datetime(df_vbt['timestamp'])
+            df_vbt.set_index('timestamp', inplace=True)
+        elif not isinstance(df_vbt.index, pd.DatetimeIndex):
+            # Fallback if no timestamp col and index is not datetime
+            logger.warning("No timestamp column found and index is not DatetimeIndex. Using integer index.")
+        # ---------------------------------------------------------
+
+        # Define entry and exit signals (now aligned with DatetimeIndex)
+        entries = df_vbt['signal'] == 1
+        exits = df_vbt['signal'] == -1
+        close = df_vbt['close']
         
-        # Create portfolio from signals
+        # --- Risk Management (Vectorized) ---
+        # 1. Get Params for this strategy
+        risk_pct = self.risk_manager._get_param('risk_per_trade_pct', strategy.name) / 100.0
+        max_size_pct = self.risk_manager._get_param('max_position_size_pct', strategy.name) / 100.0
+        atr_period = int(self.risk_manager._get_param('atr_period', strategy.name) or 14)
+        mult_sl = self.risk_manager._get_param('atr_multiplier_sl', strategy.name)
+        mult_tp = self.risk_manager._get_param('atr_multiplier_tp', strategy.name)
+        trailing_enabled = self.risk_manager._get_param('trailing_stop_enabled', strategy.name)
+        
+        # 2. Calculate ATR and Stop Distances
+        atr = self.risk_manager.calculate_atr(df_vbt, period=atr_period)
+        
+        # SL/TP percentages (distance from close)
+        # Note: VectorBT expects positive percentages for sl_stop/tp_stop
+        sl_stop_pct = (atr * mult_sl) / df_vbt['close']
+        tp_stop_pct = (atr * mult_tp) / df_vbt['close']
+        
+        # 3. Calculate Position Size % (Risk Based)
+        # Size % = Risk % / SL Dist %
+        # Avoid division by zero
+        # Make sure sl_stop_pct is not 0
+        sl_stop_pct = sl_stop_pct.replace(0, np.nan).fillna(0.01) # fallback
+        
+        size_pct = risk_pct / sl_stop_pct
+        
+        # Cap at max position size
+        size_pct = size_pct.clip(upper=max_size_pct)
+        
+        # Clean up NaNs
+        size_pct = size_pct.fillna(0.0)
+        sl_stop_pct = sl_stop_pct.fillna(0.0)
+        tp_stop_pct = tp_stop_pct.fillna(0.0)
+
+        # Create portfolio from signals with risk parameters
         portfolio = vbt.Portfolio.from_signals(
             close=close,
             entries=entries,
@@ -147,14 +176,21 @@ class BacktestEngine:
             init_cash=self.initial_capital,
             fees=self.fees,
             slippage=self.slippage,
-            freq='4h'
+            freq='4h',
+            # Risk Parameters
+            size=size_pct,
+            size_type='percent', # Size is % of current equity (or init_cash if compounded=False?) 
+                                 # 'percent' in vbt typically means % of current value (compounded)
+            sl_stop=sl_stop_pct,
+            tp_stop=tp_stop_pct,
+            sl_trail=trailing_enabled
         )
         
         # Extract metrics
         total_return = float(portfolio.total_return()) * 100
-        sharpe_ratio = float(portfolio.sharpe_ratio()) if not np.isnan(
-            portfolio.sharpe_ratio()
-        ) else 0.0
+        sharpe_ratio = float(portfolio.sharpe_ratio())
+        if np.isnan(sharpe_ratio) or np.isinf(sharpe_ratio):
+            sharpe_ratio = 0.0
         max_drawdown = float(portfolio.max_drawdown()) * 100
         
         # Get trades info
@@ -219,9 +255,21 @@ class BacktestEngine:
         trades: List[Dict] = []
         equity_curve = []
         
-        for i, row in df.iterrows():
+        # ATR Calculation
+        atr_period = int(self.risk_manager._get_param('atr_period', strategy.name) or 14)
+        df_simple = df.copy()
+        df_simple['atr'] = self.risk_manager.calculate_atr(df_simple, period=atr_period)
+        
+        # State variables
+        stop_loss = None
+        take_profit = None
+        
+        for i, row in df_simple.iterrows():
             price = row['close']
+            high = row['high'] if 'high' in row else price
+            low = row['low'] if 'low' in row else price
             signal = row['signal']
+            atr = row['atr']
             
             # Calculate current portfolio value
             if position > 0:
@@ -230,20 +278,43 @@ class BacktestEngine:
                 portfolio_value = capital
             equity_curve.append(portfolio_value)
             
-            # Buy signal
-            if signal == 1 and position == 0:
-                # Apply slippage
-                buy_price = price * (1 + self.slippage)
-                # Calculate position size (use 95% of capital for fees)
-                available = capital * 0.95
-                position = available / buy_price
-                capital -= position * buy_price * (1 + self.fees)
-                entry_price = buy_price
+            # --- Check Exits if in position ---
+            exit_signal = False
+            exit_price_exec = price
+            exit_reason = ""
+            
+            if position > 0:
+                # 1. Trailing Stop Update
+                stop_loss = self.risk_manager.check_trailing_stop(
+                    current_price=price,
+                    current_stop=stop_loss,
+                    highest_price=high,
+                    lowest_price=low,
+                    strategy_name=strategy.name,
+                    direction=1
+                )
                 
-            # Sell signal
-            elif signal == -1 and position > 0:
+                # 2. Check Exits (Order of precedence: SL, TP, Signal)
+                # Assuming Low happens before High? We don't know within the bar.
+                # Worst case: Check SL first.
+                
+                if low <= stop_loss:
+                    exit_signal = True
+                    exit_price_exec = stop_loss
+                    exit_reason = "Stop Loss"
+                elif high >= take_profit:
+                    exit_signal = True
+                    exit_price_exec = take_profit
+                    exit_reason = "Take Profit"
+                elif signal == -1:
+                    exit_signal = True
+                    exit_price_exec = price
+                    exit_reason = "Signal"
+            
+            # Execute Exit
+            if exit_signal and position > 0:
                 # Apply slippage
-                sell_price = price * (1 - self.slippage)
+                sell_price = exit_price_exec * (1 - self.slippage)
                 proceeds = position * sell_price * (1 - self.fees)
                 capital += proceeds
                 
@@ -251,11 +322,46 @@ class BacktestEngine:
                 trades.append({
                     'entry_price': entry_price,
                     'exit_price': sell_price,
-                    'pnl_percent': pnl
+                    'pnl_percent': pnl,
+                    'reason': exit_reason
                 })
                 
                 position = 0
                 entry_price = 0
+                stop_loss = None
+                take_profit = None
+                
+            
+            # --- Check Entry ---
+            if signal == 1 and position == 0 and not exit_signal:
+                # Calculate Stops
+                sl, tp = self.risk_manager.calculate_stops(
+                    entry_price=price,
+                    atr_value=atr,
+                    strategy_name=strategy.name
+                )
+                stop_loss = sl
+                take_profit = tp
+                
+                # Calculate Size
+                size_to_buy = self.risk_manager.calculate_position_size(
+                    capital=capital,
+                    entry_price=price,
+                    stop_loss_price=stop_loss,
+                    strategy_name=strategy.name
+                )
+                
+                if size_to_buy > 0:
+                    buy_price = price * (1 + self.slippage)
+                    cost = size_to_buy * buy_price * (1 + self.fees)
+                    
+                    if cost <= capital:
+                        capital -= cost
+                        position = size_to_buy
+                        entry_price = buy_price
+                    else:
+                        # Not enough cash (should be handled by calc, but rounding errs)
+                        pass
         
         # Calculate final portfolio value
         if position > 0:
@@ -276,8 +382,11 @@ class BacktestEngine:
         # Simple Sharpe approximation
         equity_series = pd.Series(equity_curve)
         returns = equity_series.pct_change().dropna()
-        sharpe_ratio = (returns.mean() / returns.std() * np.sqrt(252 * 6)
-                       if returns.std() > 0 else 0.0)
+        # Prevent division by zero if std is 0
+        if returns.std() > 0:
+            sharpe_ratio = returns.mean() / returns.std() * np.sqrt(252 * 6)
+        else:
+            sharpe_ratio = 0.0
         
         # Max drawdown
         equity_series = pd.Series(equity_curve)

@@ -1,0 +1,2 @@
+strategy,pair,total_return_pct,sharpe_ratio,max_drawdown_pct,win_rate_pct,num_trades,profit_factor,initial_capital,final_capital,timestamp
+momentum,ETH/USDT,7.95,0.54,-7.95,36.73,226,1.14,2000,2159.03,2026-01-22T21:12:52.425041

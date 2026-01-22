@@ -38,12 +38,6 @@ crypto-swing-bot/
 │   ├── risk_manager.py         # Gestion du risque (position sizing, stops)
 │   └── utils.py                # Fonctions utilitaires
 │
-├── notebooks/
-│   ├── 01_exploration.ipynb    # EDA + premières stratégies
-│   ├── 02_backtest_analysis.ipynb  # Analyse résultats backtest
-│   ├── 03_optimization.ipynb   # Visualisation optimisations
-│   └── 04_performance_review.ipynb # Revue de perf paper trading
-│
 ├── dashboard/
 │   ├── app.py                  # Streamlit app principal
 │   ├── pages/                  # Pages Streamlit
@@ -97,7 +91,7 @@ crypto-swing-bot/
 **Output** :
 - Meilleure stratégie + params optimaux identifiés
 - Fichiers CSV des résultats
-
+-Dashboard Streamlit page backtest
 ---
 
 ### Phase 2 : OPTIMISATION (Semaines 4-8)
@@ -108,7 +102,7 @@ crypto-swing-bot/
 1. Grid search / Bayesian optimization sur les paramètres clés
    - Ex: SMA court [10-50], SMA long [50-200], position size [1-3%]
 2. Validation croisée (walk-forward analysis) pour éviter l'overfitting
-3. Exporter résultats d'optimisation en CSV/JSON
+3. Exporter résultats d'optimisation en html
 4. Comparer performance sur différentes paires
 5. Définir règles de risque (stop loss, take profit, max position size)
 
