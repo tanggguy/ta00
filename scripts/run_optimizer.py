@@ -54,7 +54,7 @@ def main():
 
     # 2. Fetch Data
     logger.info(f"Fetching data for {args.pair}...")
-    fetcher = BinanceDataFetcher()
+    fetcher = BinanceDataFetcher(force_mainnet=True)
     try:
         df = fetcher.fetch_ohlcv(args.pair, args.timeframe, args.start_date, args.end_date)
         if df.empty:
