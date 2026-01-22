@@ -93,12 +93,10 @@ crypto-swing-bot/
 3. Backtest vectorisé (VectorBT) : rapide, teste 1000 combos de params en secondes
 4. Logs backtest → fichiers CSV :
    - `backtest_BTCUSDT_20240101_20250101.csv` avec colonnes : date, signal, prix, PnL, drawdown, Sharpe
-5. Jupyter : analyse de chaque stratégie, courbes d'équité, statistiques
 
 **Output** :
 - Meilleure stratégie + params optimaux identifiés
 - Fichiers CSV des résultats
-- Rapport Jupyter avec courbes
 
 ---
 

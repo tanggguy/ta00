@@ -1,0 +1,2 @@
+strategy,pair,total_return_pct,sharpe_ratio,max_drawdown_pct,win_rate_pct,num_trades,profit_factor,initial_capital,final_capital,timestamp
+mean_reversion,BTC/USDT,117.79,1.4,-24.42,73.91,23,6.67,2000,4355.78,2026-01-22T19:09:58.696455

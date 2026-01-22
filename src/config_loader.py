@@ -86,7 +86,8 @@ class ConfigLoader:
             'pairs.json',
             'strategies.json',
             'logging.json',
-            'backtest.json'
+            'backtest.json',
+            'optimization.json'
         ]
         
         for filename in config_files:

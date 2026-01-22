@@ -3,12 +3,7 @@ Script: scripts/run_backtest.py
 Description: Run backtest with configured strategies
 Author: Trading Bot
 Date: 2025-01-22
-Version: 1.0
-
-Usage:
-    python scripts/run_backtest.py
-    python scripts/run_backtest.py --strategy trend_following
-    python scripts/run_backtest.py --strategy all --pair BTC/USDT
+Version: 1.1
 """
 
 import argparse
@@ -39,13 +34,6 @@ logger = get_logger(__name__)
 def load_data(pair: str, data_dir: str = "data/raw/"):
     """
     Load data from CSV or fetch from Binance.
-    
-    Args:
-        pair: Trading pair
-        data_dir: Directory with CSV files
-    
-    Returns:
-        DataFrame with OHLCV data
     """
     data_path = Path(data_dir)
     pair_clean = pair.replace("/", "")
@@ -57,14 +45,16 @@ def load_data(pair: str, data_dir: str = "data/raw/"):
         # Use most recent file
         csv_file = sorted(csv_files)[-1]
         logger.info(f"Loading data from {csv_file}")
-        fetcher = BinanceDataFetcher()
+        # Use mainnet fetcher just for loading CSV (safe default)
+        fetcher = BinanceDataFetcher(force_mainnet=True)
         return fetcher.load_from_csv(str(csv_file))
     else:
         logger.warning(f"No CSV found for {pair}, fetching from Binance...")
         config = get_config()
         backtest_config = config.backtest
         
-        fetcher = BinanceDataFetcher()
+        # CRITICAL FIX: Force mainnet for historical data
+        fetcher = BinanceDataFetcher(force_mainnet=True)
         return fetcher.fetch_ohlcv(
             pair,
             timeframe=backtest_config.get('timeframe', '4h'),
@@ -85,7 +75,7 @@ def run_single_strategy(
     # Load data
     df = load_data(pair)
     
-    if df.empty:
+    if df is None or df.empty:
         logger.error(f"No data for {pair}")
         return None
     

@@ -3,7 +3,7 @@ Script: scripts/fetch_historical_data.py
 Description: Fetch historical OHLCV data from Binance
 Author: Trading Bot
 Date: 2025-01-22
-Version: 1.0
+Version: 1.1
 
 Usage:
     python scripts/fetch_historical_data.py
@@ -62,7 +62,7 @@ def main():
     parser.add_argument(
         '--testnet',
         action='store_true',
-        help="Use Binance testnet"
+        help="Use Binance testnet (WARNING: No historical data available on testnet)"
     )
     
     args = parser.parse_args()
@@ -88,8 +88,13 @@ def main():
     logger.info("=" * 60)
     
     try:
-        # Initialize fetcher
-        fetcher = BinanceDataFetcher(testnet=args.testnet)
+        # CORRECTION IMPORTANTE :
+        # On force le Mainnet SAUF si l'utilisateur demande explicitement le testnet via l'argument CLI.
+        # Cela permet de télécharger les vraies données historiques même si settings.json est en mode testnet.
+        fetcher = BinanceDataFetcher(
+            testnet=args.testnet,
+            force_mainnet=not args.testnet
+        )
         
         # Fetch data for all pairs
         results = fetcher.fetch_multiple_pairs(

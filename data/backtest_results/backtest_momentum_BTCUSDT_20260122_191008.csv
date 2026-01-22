@@ -1,0 +1,2 @@
+strategy,pair,total_return_pct,sharpe_ratio,max_drawdown_pct,win_rate_pct,num_trades,profit_factor,initial_capital,final_capital,timestamp
+momentum,BTC/USDT,102.47,1.19,-36.51,36.42,162,1.31,2000,4049.42,2026-01-22T19:10:08.321204

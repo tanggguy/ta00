@@ -3,7 +3,7 @@ Module: src/data_fetcher.py
 Description: Fetch OHLCV data from Binance via CCXT
 Author: Trading Bot
 Date: 2025-01-22
-Version: 1.0
+Version: 1.1
 """
 
 import time
@@ -29,17 +29,20 @@ class BinanceDataFetcher:
     Configuration loaded from config/pairs.json and config/settings.json.
     """
     
-    def __init__(self, testnet: bool = False):
+    def __init__(self, testnet: bool = False, force_mainnet: bool = False):
         """
         Initialize Binance Data Fetcher.
         
         Args:
             testnet (bool): Use Binance testnet (default: False)
+            force_mainnet (bool): Force Mainnet connection ignoring config (default: False)
         """
         config = get_config()
         
-        # Check if testnet should be enabled from config
-        if testnet or config.is_testnet:
+        # Logic: Use testnet if (requested OR config says so) AND NOT forced to mainnet
+        should_use_testnet = (testnet or config.is_testnet) and not force_mainnet
+        
+        if should_use_testnet:
             self.exchange = ccxt.binance({
                 'sandbox': True,
                 'enableRateLimit': True,
@@ -89,8 +92,12 @@ class BinanceDataFetcher:
         # Format pair for CCXT
         formatted_pair = format_pair(pair, separator="/")
         
+        # Check if market exists (safeguard)
         if formatted_pair not in self.exchange.markets:
-            raise ValueError(f"Pair not supported: {formatted_pair}")
+            # Try to reload markets once if pair not found
+            self.exchange.load_markets()
+            if formatted_pair not in self.exchange.markets:
+                raise ValueError(f"Pair not supported: {formatted_pair}")
         
         # Parse dates
         since = self.exchange.parse8601(f"{start_date}T00:00:00Z")
@@ -180,13 +187,6 @@ class BinanceDataFetcher:
     def validate_data(self, df: pd.DataFrame, pair: str) -> bool:
         """
         Validate that fetched data is complete and correct.
-        
-        Args:
-            df (pd.DataFrame): DataFrame to validate
-            pair (str): Trading pair (for logging)
-        
-        Returns:
-            bool: True if valid, False otherwise
         """
         required_cols = ['timestamp', 'open', 'high', 'low', 'close', 'volume']
         
@@ -229,19 +229,7 @@ class BinanceDataFetcher:
         start_date: str = "",
         end_date: str = ""
     ) -> str:
-        """
-        Save DataFrame to CSV file.
-        
-        Args:
-            df (pd.DataFrame): DataFrame to save
-            pair (str): Trading pair
-            output_dir (str): Output directory
-            start_date (str): Start date for filename
-            end_date (str): End date for filename
-        
-        Returns:
-            str: Path to saved file
-        """
+        """Save DataFrame to CSV file."""
         ensure_directory(output_dir)
         
         pair_clean = format_pair(pair, separator="")
@@ -259,18 +247,7 @@ class BinanceDataFetcher:
         return str(filepath)
     
     def load_from_csv(self, filepath: str) -> pd.DataFrame:
-        """
-        Load OHLCV data from CSV file.
-        
-        Args:
-            filepath (str): Path to CSV file
-        
-        Returns:
-            pd.DataFrame: Loaded DataFrame
-        
-        Raises:
-            FileNotFoundError: If file doesn't exist
-        """
+        """Load OHLCV data from CSV file."""
         path = Path(filepath)
         
         if not path.exists():
@@ -291,20 +268,7 @@ class BinanceDataFetcher:
         save: bool = True,
         output_dir: str = "data/raw/"
     ) -> dict:
-        """
-        Fetch data for multiple trading pairs.
-        
-        Args:
-            pairs (Optional[List[str]]): List of pairs (defaults to config)
-            timeframe (str): Candle timeframe
-            start_date (str): Start date
-            end_date (Optional[str]): End date
-            save (bool): Save to CSV files
-            output_dir (str): Output directory for CSV files
-        
-        Returns:
-            dict: Dictionary of {pair: DataFrame}
-        """
+        """Fetch data for multiple trading pairs."""
         if pairs is None:
             config = get_config()
             pairs = config.get('pairs', 'pairs', ['BTC/USDT', 'ETH/USDT'])
