@@ -1,0 +1,19 @@
+{
+    "start_date": "2023-01-01",
+    "end_date": "2025-01-22",
+    "timeframe": "4h",
+    "initial_capital": 2000,
+    "fees": 0.001,
+    "slippage": 0.0005,
+    "walk_forward": {
+        "enabled": false,
+        "train_ratio": 0.7,
+        "test_ratio": 0.3
+    },
+    "output": {
+        "save_results": true,
+        "results_dir": "data/backtest_results/",
+        "export_trades": true,
+        "export_equity_curve": true
+    }
+}

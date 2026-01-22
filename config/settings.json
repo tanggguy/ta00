@@ -1,0 +1,8 @@
+{
+  "initial_capital": 2000,
+  "currency": "EUR",
+  "fees": 0.001,
+  "max_position_size": 0.02,
+  "testnet_enabled": true,
+  "paper_trading": true
+}

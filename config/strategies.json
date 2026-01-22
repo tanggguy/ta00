@@ -1,0 +1,22 @@
+{
+    "trend_following": {
+        "enabled": true,
+        "sma_short": 20,
+        "sma_long": 50,
+        "description": "SMA crossover strategy - Buy when short SMA crosses above long SMA"
+    },
+    "mean_reversion": {
+        "enabled": true,
+        "rsi_period": 14,
+        "oversold": 30,
+        "overbought": 70,
+        "description": "RSI-based mean reversion - Buy when oversold, sell when overbought"
+    },
+    "momentum": {
+        "enabled": true,
+        "macd_fast": 12,
+        "macd_slow": 26,
+        "macd_signal": 9,
+        "description": "MACD momentum strategy - Buy when MACD crosses above signal line"
+    }
+}
