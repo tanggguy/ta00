@@ -39,12 +39,14 @@ crypto-swing-bot/
 │   └── utils.py                # Fonctions utilitaires
 │
 ├── dashboard/
-│   ├── app.py                  # Streamlit app principal
+│   ├── app.py                  # Streamlit app principal reserve a la visualisation et creation de rapports
 │   ├── pages/                  # Pages Streamlit
 │   │   ├── 01_backtest_results.py
-│   │   ├── 02_live_monitoring.py
+│   │   ├── 02_comparison.py
 │   │   ├── 03_csv_explorer.py
 │   │   └── 04_risk_analysis.py
+│   │   ├── 05_backtest_results.py
+│   │   ├── 06_live_monitoring.py
 │   └── logs/                   # Fichiers log exportés
 │
 ├── config/
@@ -112,7 +114,52 @@ crypto-swing-bot/
 - Rapports walk-forward montrant stabilité
 
 ---
+2.1. Données Alternatives & Sentiment (Gratuit)
+Objectif : Filtrer les signaux techniques par le contexte global du marché.
 
+Source CryptoPanic (API) :
+
+Implémenter un script src/data_sentiment.py pour récupérer le score de "votes" (bullish vs bearish) sur les dernières news.
+
+Règle métier : Si le sentiment est > 70% bearish, interdiction d'ouvrir une position "BUY", même si le RSI est survendu.
+
+Filtre de Volatilité Google Trends :
+
+Utiliser la bibliothèque pytrends pour mesurer l'intérêt sur le mot "Bitcoin".
+
+Une hausse soudaine de l'intérêt sert de "confirmation" pour une stratégie de momentum.
+
+2.2. Machine Learning "Light" (Scikit-Learn)
+Objectif : Créer un modèle de classification pour valider la qualité d'un signal.
+
+Modèle : RandomForestClassifier ou XGBoost (via Scikit-Learn).
+
+Features (Variables d'entrée) :
+
+Technique : RSI, MACD, écart à la SMA.
+
+Temps : Heure du signal (pour capturer les sessions US/Asie).
+
+Sentiment : Score CryptoPanic du moment.
+
+Target (Cible) : Le trade a-t-il atteint +1% avant de toucher un stop à -0.5% ? (Binaire : 1 ou 0).
+
+Intégration : Le bot génère un signal (ex: Momentum), le modèle ML donne son "accord". Si la probabilité de succès est < 60%, le trade est ignoré.
+
+2.3. Infrastructure & Optimisation Bayésienne
+Objectif : Remplacer le Grid Search de src/optimizer.py par une recherche intelligente.
+
+Outil : Optuna (Bibliothèque Python gratuite).
+
+Plan de transfert :
+
+Définir l'Objectif : Créer une fonction objective(trial) qui prend des paramètres suggérés par Optuna, lance un backtest rapide, et retourne le ratio de Sharpe.
+
+Espace de recherche : Au lieu d'une liste fixe dans param_grid, définir des plages (ex: trial.suggest_int('sma_short', 10, 50)).
+
+Élagage (Pruning) : Configurer Optuna pour arrêter immédiatement les tests de paramètres qui performent très mal dès les premières étapes du backtest (gain de temps énorme).
+
+Stockage : Les résultats sont sauvegardés dans un fichier SQLite local (gratuit) pour pouvoir reprendre l'optimisation plus tard.
 ### Phase 3 : PAPER TRADING (Semaines 8-12)
 
 **Objectif** : Valider que ça marche "en réel" (sans argent).
@@ -173,24 +220,30 @@ trend_following,20,60,1.0,42.1,1.7,-11.2,55,198
    - Graphe : courbe d'équité + drawdown
    - Tableau : statistiques (Sharpe, Win Rate, Profit Factor)
    - Bouton : télécharger CSV correspondant
+2. **Comparison**
+   compare les dernier backtest
 
-2. **Live Monitoring** (une fois en paper/live)
-   - Positions ouvertes actuelles
-   - Derniers trades fermés (PnL)
-   - Courbe d'équité paper trading
-   - Comparaison vs backtest (écart %)
-
-3. **CSV Explorer**
+4. **CSV Explorer**
    - Upload/browse fichiers CSV (backtest ou live)
    - Affiche table interactive
    - Filtrage par date, paire, status
    - Télécharge données filtrées
+5. **Optimization Results**
+   - Sélecteur : stratégie + paire + dates
+   - Graphe : courbe d'équité + drawdown
+   - Tableau : statistiques (Sharpe, Win Rate, Profit Factor)
+   - Bouton : télécharger html correspondant
 
-4. **Risk Analysis**
+6. **Risk Analysis**
    - Heatmap de correlation entre paires
    - Visualisation max drawdown par stratégie
    - Scenario analysis (what-if)
-
+  
+7. **Live Monitoring** (une fois en paper/live)
+   - Positions ouvertes actuelles
+   - Derniers trades fermés (PnL)
+   - Courbe d'équité paper trading
+   - Comparaison vs backtest (écart %)
 ---
 
 ## 💻 Implémentation : Stack technique détaillé

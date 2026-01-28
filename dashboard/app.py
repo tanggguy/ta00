@@ -82,7 +82,7 @@ def main():
     | Page | Description | Status |
     |------|-------------|--------|
     | ** Backtest Results** | Analyze strategy performance, equity curves, exports | ✅ Active |
-    | **Live Monitoring** | Real-time paper/live trading monitoring | 🔜 Phase 3 |
+    | **Live Monitoring** | Real-time paper/live trading monitoring | ✅ Active |
     | **CSV Explorer** | Browse and filter trading data files | 🔜 Coming soon |
     | **Risk Analysis** | Correlation, drawdown analysis | 🔜 Phase 2 |
     

@@ -1,0 +1,18 @@
+{
+    "cryptopanic": {
+        "enabled": true,
+        "bearish_threshold_pct": 70,
+        "lookback_hours": 24,
+        "block_on_error": true,
+        "cache_duration_seconds": 14400
+    },
+    "google_trends": {
+        "enabled": true,
+        "keyword": "Bitcoin",
+        "timeframe": "now 7-d",
+        "geo": "",
+        "surge_threshold_pct": 150,
+        "use_as_momentum_confirmation": true,
+        "cache_duration_seconds": 14400
+    }
+}

@@ -1,0 +1,193 @@
+{
+    "best_params": {
+        "sma_short": 40,
+        "sma_long": 50
+    },
+    "train_stats": {
+        "sharpe": 1.71
+    },
+    "test_stats": {
+        "sharpe": 2.22,
+        "total_return": 4.33,
+        "max_drawdown": -2.07,
+        "win_rate": 59.09
+    },
+    "overfitting_detected": -0.5100000000000002,
+    "is_overfitting": false,
+    "all_train_results": [
+        {
+            "sma_short": 5,
+            "sma_long": 50,
+            "sharpe": 0.93,
+            "total_return": 4.46
+        },
+        {
+            "sma_short": 5,
+            "sma_long": 100,
+            "sharpe": -0.02,
+            "total_return": -0.23
+        },
+        {
+            "sma_short": 5,
+            "sma_long": 200,
+            "sharpe": -0.3,
+            "total_return": -1.42
+        },
+        {
+            "sma_short": 5,
+            "sma_long": 300,
+            "sharpe": 0.14,
+            "total_return": 0.46
+        },
+        {
+            "sma_short": 5,
+            "sma_long": 400,
+            "sharpe": 0.42,
+            "total_return": 1.6
+        },
+        {
+            "sma_short": 10,
+            "sma_long": 50,
+            "sharpe": 1.57,
+            "total_return": 7.1
+        },
+        {
+            "sma_short": 10,
+            "sma_long": 100,
+            "sharpe": 0.03,
+            "total_return": 0.0
+        },
+        {
+            "sma_short": 10,
+            "sma_long": 200,
+            "sharpe": -0.26,
+            "total_return": -1.2
+        },
+        {
+            "sma_short": 10,
+            "sma_long": 300,
+            "sharpe": 0.36,
+            "total_return": 1.41
+        },
+        {
+            "sma_short": 10,
+            "sma_long": 400,
+            "sharpe": 0.11,
+            "total_return": 0.32
+        },
+        {
+            "sma_short": 20,
+            "sma_long": 50,
+            "sharpe": 1.36,
+            "total_return": 5.9
+        },
+        {
+            "sma_short": 20,
+            "sma_long": 100,
+            "sharpe": -0.27,
+            "total_return": -1.26
+        },
+        {
+            "sma_short": 20,
+            "sma_long": 200,
+            "sharpe": -0.84,
+            "total_return": -3.45
+        },
+        {
+            "sma_short": 20,
+            "sma_long": 300,
+            "sharpe": -0.24,
+            "total_return": -1.1
+        },
+        {
+            "sma_short": 20,
+            "sma_long": 400,
+            "sharpe": -0.62,
+            "total_return": -2.59
+        },
+        {
+            "sma_short": 30,
+            "sma_long": 50,
+            "sharpe": 0.83,
+            "total_return": 3.42
+        },
+        {
+            "sma_short": 30,
+            "sma_long": 100,
+            "sharpe": 0.22,
+            "total_return": 0.8
+        },
+        {
+            "sma_short": 30,
+            "sma_long": 200,
+            "sharpe": -0.71,
+            "total_return": -2.88
+        },
+        {
+            "sma_short": 30,
+            "sma_long": 300,
+            "sharpe": -0.34,
+            "total_return": -1.48
+        },
+        {
+            "sma_short": 30,
+            "sma_long": 400,
+            "sharpe": -0.69,
+            "total_return": -2.88
+        },
+        {
+            "sma_short": 40,
+            "sma_long": 50,
+            "sharpe": 1.71,
+            "total_return": 7.57
+        },
+        {
+            "sma_short": 40,
+            "sma_long": 100,
+            "sharpe": -0.18,
+            "total_return": -0.85
+        },
+        {
+            "sma_short": 40,
+            "sma_long": 200,
+            "sharpe": -1.08,
+            "total_return": -3.99
+        },
+        {
+            "sma_short": 40,
+            "sma_long": 300,
+            "sharpe": -0.73,
+            "total_return": -2.96
+        },
+        {
+            "sma_short": 40,
+            "sma_long": 400,
+            "sharpe": -0.63,
+            "total_return": -2.6
+        },
+        {
+            "sma_short": 50,
+            "sma_long": 100,
+            "sharpe": -0.72,
+            "total_return": -2.98
+        },
+        {
+            "sma_short": 50,
+            "sma_long": 200,
+            "sharpe": -0.99,
+            "total_return": -3.58
+        },
+        {
+            "sma_short": 50,
+            "sma_long": 300,
+            "sharpe": -0.76,
+            "total_return": -3.02
+        },
+        {
+            "sma_short": 50,
+            "sma_long": 400,
+            "sharpe": -0.92,
+            "total_return": -3.61
+        }
+    ]
+}

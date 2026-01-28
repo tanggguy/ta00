@@ -1,0 +1,1280 @@
+{
+    "best_params": {
+        "fast": 12,
+        "slow": 26,
+        "signal": 9
+    },
+    "train_stats": {
+        "sharpe": 0.39
+    },
+    "test_stats": {
+        "sharpe": 2.49,
+        "total_return": 3.99,
+        "max_drawdown": -1.38,
+        "win_rate": 48.39
+    },
+    "overfitting_detected": -2.1,
+    "is_overfitting": false,
+    "all_train_results": [
+        {
+            "fast": 12,
+            "slow": 26,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 26,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 26,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 26,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 26,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 24,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 24,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 24,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 24,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 24,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 22,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 22,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 22,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 22,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 22,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 20,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 20,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 20,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 20,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 20,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 18,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 18,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 18,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 18,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 18,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 16,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 16,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 16,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 16,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 12,
+            "slow": 16,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 26,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 26,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 26,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 26,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 26,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 24,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 24,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 24,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 24,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 24,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 22,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 22,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 22,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 22,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 22,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 20,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 20,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 20,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 20,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 20,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 18,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 18,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 18,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 18,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 18,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 16,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 16,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 16,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 16,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 10,
+            "slow": 16,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 26,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 26,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 26,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 26,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 26,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 24,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 24,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 24,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 24,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 24,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 22,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 22,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 22,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 22,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 22,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 20,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 20,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 20,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 20,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 20,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 18,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 18,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 18,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 18,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 18,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 16,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 16,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 16,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 16,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 8,
+            "slow": 16,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 26,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 26,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 26,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 26,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 26,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 24,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 24,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 24,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 24,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 24,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 22,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 22,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 22,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 22,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 22,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 20,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 20,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 20,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 20,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 20,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 18,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 18,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 18,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 18,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 18,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 16,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 16,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 16,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 16,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 6,
+            "slow": 16,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 26,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 26,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 26,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 26,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 26,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 24,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 24,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 24,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 24,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 24,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 22,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 22,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 22,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 22,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 22,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 20,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 20,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 20,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 20,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 20,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 18,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 18,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 18,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 18,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 18,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 16,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 16,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 16,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 16,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 4,
+            "slow": 16,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 26,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 26,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 26,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 26,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 26,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 24,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 24,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 24,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 24,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 24,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 22,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 22,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 22,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 22,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 22,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 20,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 20,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 20,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 20,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 20,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 18,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 18,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 18,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 18,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 18,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 16,
+            "signal": 9,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 16,
+            "signal": 7,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 16,
+            "signal": 5,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 16,
+            "signal": 3,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        },
+        {
+            "fast": 2,
+            "slow": 16,
+            "signal": 1,
+            "sharpe": 0.39,
+            "total_return": 1.59
+        }
+    ]
+}

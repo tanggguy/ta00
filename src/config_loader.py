@@ -88,7 +88,8 @@ class ConfigLoader:
             'logging.json',
             'backtest.json',
             'optimization.json',
-            'risk.json'
+            'risk.json',
+            'sentiment.json'
         ]
         
         for filename in config_files:
@@ -168,6 +169,11 @@ class ConfigLoader:
     def backtest(self) -> Dict[str, Any]:
         """Get backtest configuration."""
         return self._cache.get('backtest', {})
+    
+    @property
+    def sentiment(self) -> Dict[str, Any]:
+        """Get sentiment configuration."""
+        return self._cache.get('sentiment', {})
     
     # Environment variables
     def get_env(self, key: str, default: Optional[str] = None) -> Optional[str]:
